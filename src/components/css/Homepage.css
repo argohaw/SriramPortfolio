@@ -1,0 +1,141 @@
+.hero-wrapper {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  padding-top: 120px;
+  box-sizing: border-box;
+}
+
+.glass-box {
+  position: relative;
+  z-index: 10;
+  width: 85%;
+  height: calc(85vh - 120px);
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.glass-box::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  z-index: -1;
+  background: rgba(255, 255, 255, 0.15);
+  background-size: 400% 400%;
+  animation: borderGlow 10s ease infinite;
+  border-radius: 22px;
+  filter: blur(10px);
+  opacity: 0.6;
+}
+
+/* Border animation keyframes */
+@keyframes borderGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .glass-hero {
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    margin-top: 30vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .glass-hero {
+    padding: 1rem;
+    font-size: 1.2rem;
+    margin-top: 25vh;
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  text-align: center;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 1rem;
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-title {
+  font-size: 7vw;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 1.1;
+  text-align: center;
+  margin: 0 auto;
+  word-break: break-word;
+  max-width: 95%;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, white, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Responsive refinements */
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 4rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-title {
+    font-size: 5rem;
+  }
+}
+
+.hero-description {
+  margin-top: 2rem;
+  font-size: 1.125rem;
+  color: #d1d5db;
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: justify;
+}

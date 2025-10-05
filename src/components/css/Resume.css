@@ -1,0 +1,343 @@
+.resume-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 150px 2rem 2rem 2rem;
+    box-sizing: border-box;
+}
+
+.glass-box-r {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 1rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    padding: 2rem;
+    width: 85%;
+    max-width: none;
+    min-height: 550px;
+}
+
+.resume-content {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.resume-title {
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    line-height: 1.1;
+    text-align: center;
+    margin-bottom: 2rem;
+    background: linear-gradient(to right, white, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.tabs-container {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tabs-nav {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 1rem;
+}
+
+.tab-button {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.tab-button:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.tab-button.active {
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.tab-content {
+    position: relative;
+    min-height: 200px;
+}
+
+.tab-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.tab-panel.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.tab-panel h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.tab-panel p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.tab-panel p strong {
+    color: #9333ea;
+    font-weight: 700;
+}
+
+.tab-panel p em {
+    color: #ffffff;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.experience-cards-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.experience-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    flex: 1;
+    min-width: 200px;
+}
+
+.experience-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(147, 51, 234, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(147, 51, 234, 0.15);
+}
+
+.card-header {
+    margin-bottom: 1rem;
+}
+
+.card-header h4 {
+    color: #9333ea;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+}
+
+.company {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.duration {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.card-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card-content li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
+}
+
+.card-content li:before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #9333ea;
+    font-weight: bold;
+}
+
+.education-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.education-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(147, 51, 234, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(147, 51, 234, 0.15);
+}
+
+.specialization {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    font-style: italic;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.5rem;
+    margin-top: 1rem;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+.skill-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.6s ease;
+    cursor: pointer;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.skill-logo {
+    font-size: 1.5rem;
+    display: block;
+    transition: all 0.6s ease;
+}
+
+.skill-card[data-skill="Java"] .skill-logo { color: #f89820; }
+.skill-card[data-skill="Spring Boot"] .skill-logo { color: #6db33f; }
+.skill-card[data-skill="JavaScript"] .skill-logo { color: #f7df1e; }
+.skill-card[data-skill="React.js"] .skill-logo { color: #61dafb; }
+.skill-card[data-skill="Spring Security"] .skill-logo { color: #6db33f; }
+.skill-card[data-skill="OAuth2"] .skill-logo { color: #ff6b6b; }
+.skill-card[data-skill="Spring AI"] .skill-logo { color: #00d4aa; }
+.skill-card[data-skill="Microservices"] .skill-logo { color: #4ecdc4; }
+.skill-card[data-skill="Design Patterns"] .skill-logo { color: #ff9ff3; }
+.skill-card[data-skill="OOP"] .skill-logo { color: #54a0ff; }
+.skill-card[data-skill="Load Balancing"] .skill-logo { color: #5f27cd; }
+.skill-card[data-skill="Apache Kafka"] .skill-logo { color: #231f20; }
+.skill-card[data-skill="Azure"] .skill-logo { color: #0078d4; }
+.skill-card[data-skill="AWS"] .skill-logo { color: #ff9900; }
+.skill-card[data-skill="Docker"] .skill-logo { color: #2496ed; }
+.skill-card[data-skill="CI/CD pipelines"] .skill-logo { color: #326ce5; }
+.skill-card[data-skill="MSSQL"] .skill-logo { color: #cc2927; }
+.skill-card[data-skill="PostgreSQL"] .skill-logo { color: #336791; }
+.skill-card[data-skill="Redis"] .skill-logo { color: #dc382d; }
+.skill-card[data-skill="Secure APIs"] .skill-logo { color: #00d084; }
+.skill-card[data-skill="Git"] .skill-logo { color: #f05032; }
+.skill-card[data-skill="JIRA"] .skill-logo { color: #0052cc; }
+.skill-card[data-skill="Agile Methodology"] .skill-logo { color: #00c851; }
+.skill-card[data-skill="RCA"] .skill-logo { color: #ff8a80; }
+.skill-card[data-skill="Security Advocacy"] .skill-logo { color: #ffc107; }
+.skill-card[data-skill="Mentorship"] .skill-logo { color: #e91e63; }
+
+.skill-name {
+    position: absolute;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+    transition: opacity 0.6s ease;
+    white-space: nowrap;
+    opacity: 0;
+}
+
+.skill-card:hover .skill-logo {
+    opacity: 0;
+}
+
+.skill-card:hover .skill-name {
+    opacity: 1;
+    transform: rotateY(180deg);
+}
+
+.skill-card:hover {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-color: rgba(147, 51, 234, 0.3);
+    transform: rotateY(180deg);
+    box-shadow: 0 4px 15px rgba(147, 51, 234, 0.15);
+    color: #000000;
+}
+
+@media (max-width: 768px) {
+    .resume-wrapper {
+        padding: 1rem;
+    }
+    
+    .glass-box {
+        padding: 1.5rem;
+    }
+    
+    .tabs-nav {
+        flex-wrap: wrap;
+        gap: 0.25rem;
+    }
+    
+    .tab-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .resume-title {
+        font-size: 2rem;
+    }
+}

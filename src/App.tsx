@@ -13,13 +13,13 @@ import "./App.css";
 const ContentWrapper: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  return <div style={{ position: "relative", zIndex: 1 }}>{children}</div>;
+  return <div className="scroll-container" style={{ position: "relative", zIndex: 1 }}>{children}</div>;
 };
 
 const App: React.FC = () => {
   useEffect(() => {
-    // Scroll to homepage on refresh
-    window.scrollTo(0, 0);
+    const container = document.querySelector(".scroll-container") as HTMLElement;
+    if (container) container.scrollTop = 0;
   }, []);
 
   return (

@@ -428,6 +428,7 @@ class App {
 
   isDown: boolean = false;
   start: number = 0;
+  isHovered: boolean = false;
 
   constructor(
     container: HTMLElement,
@@ -452,6 +453,12 @@ class App {
     this.onResize();
     this.createGeometry();
     this.createMedias(items, bend, textColor, borderRadius, font);
+    if (this.medias && this.medias[0]) {
+      const startOffset = this.medias[0].width * 2;
+      this.scroll.current = startOffset;
+      this.scroll.target = startOffset;
+      this.scroll.last = startOffset;
+    }
     this.update();
     this.addEventListeners();
   }
@@ -619,6 +626,9 @@ class App {
   }
 
   update() {
+    if (!this.isHovered && !this.isDown) {
+      this.scroll.target += 0.008;
+    }
     this.scroll.current = lerp(this.scroll.current, this.scroll.target, this.scroll.ease);
     const direction = this.scroll.current > this.scroll.last ? 'right' : 'left';
     if (this.medias) {
@@ -644,6 +654,8 @@ class App {
     window.addEventListener('touchstart', this.boundOnTouchDown);
     window.addEventListener('touchmove', this.boundOnTouchMove);
     window.addEventListener('touchend', this.boundOnTouchUp);
+    this.container.addEventListener('mouseenter', () => { this.isHovered = true; });
+    this.container.addEventListener('mouseleave', () => { this.isHovered = false; });
   }
 
   destroy() {

@@ -58,6 +58,26 @@
   display: none;
 }
 
+@media (max-width: 1024px) {
+  .services-wrapper {
+    padding: 100px 1.5rem 1.5rem 1.5rem;
+    gap: 1.25rem;
+  }
+
+  .services-title {
+    font-size: 2.75rem;
+  }
+
+  .services-title-box {
+    padding: 1.25rem 1.75rem;
+  }
+
+  .services-scrollstack-container {
+    width: 92%;
+    height: 55vh;
+  }
+}
+
 @media (max-width: 768px) {
   .services-wrapper {
     padding: 120px 1rem 1rem 1rem;

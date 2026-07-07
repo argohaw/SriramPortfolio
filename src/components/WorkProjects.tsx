@@ -39,7 +39,7 @@ const WorkProjects: React.FC = () => {
           }}>Work Projects</h2>
         </div>
       </div>
-      <div style={{ height: "calc(100vh - 300px)", position: "relative", padding: '1rem', marginTop: '1px' }}>
+      <div style={{ height: "calc(100vh - 300px)", position: "relative", padding: '1rem', marginTop: '-40px' }}>
         <CircularGallery
           bend={3}
           textColor="#ffffff"

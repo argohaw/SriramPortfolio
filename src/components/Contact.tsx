@@ -24,7 +24,7 @@ const Contact: React.FC = () => {
 
   return (
     <div id="contact" className="contact-wrapper" style={{
-      minHeight: '100vh',
+      height: '100vh',
       position: 'relative',
       zIndex: 1,
       display: 'flex',

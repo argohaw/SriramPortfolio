@@ -1,7 +1,40 @@
 html, body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
-  height: 100%; /* Prevent horizontal scrolling */
+  overflow: hidden;
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+}
+
+.scroll-container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y proximity;
   scroll-behavior: smooth;
+}
+
+.scroll-container > * {
+  scroll-snap-align: start;
+}
+
+@media (max-width: 1024px) {
+  #projects > div:first-child {
+    padding: 100px 1rem 0 1rem !important;
+  }
+
+  #projects > div:first-child > div > h2 {
+    font-size: 2.75rem !important;
+  }
+
+  .contact-wrapper {
+    padding: 100px 1.5rem 1.5rem 1.5rem !important;
+  }
+
+  .contact-title {
+    font-size: 2.75rem !important;
+  }
+
+  .contact-glass-box {
+    width: 92% !important;
+  }
 }

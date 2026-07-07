@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { Flip } from "gsap/Flip";
-// use your own icon import if react-icons is not available
+import resumePdf from "../../assets/Sriram_Fullstack_Resume.pdf";
 import "./CardNav.css";
 
 gsap.registerPlugin(Flip);
@@ -155,18 +155,22 @@ const CardNav: React.FC<CardNavProps> = ({
     if (el) cardsRef.current[i] = el;
   };
 
-  const handleHireMeClick = () => {
-    // Scroll to contact section
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
+  const scrollToSection = (id: string) => {
+    const container = document.querySelector(".scroll-container") as HTMLElement;
+    const target = document.getElementById(id);
+    if (container && target) {
+      container.scrollTo({ top: target.offsetTop, behavior: "smooth" });
     }
+  };
+
+  const handleHireMeClick = () => {
+    scrollToSection("contact");
 
     // Download resume after a short delay
     setTimeout(() => {
       const link = document.createElement("a");
-      link.href = "/src/assets/Sriramasivam Thirumalaivasan - Resume";
-      link.download = "Sriramasivam Thirumalaivasan - Resume.pdf";
+      link.href = resumePdf;
+      link.download = "Sriram_Fullstack_Resume.pdf";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -219,6 +223,12 @@ const CardNav: React.FC<CardNavProps> = ({
                 <a
                   href={item.links}
                   style={{ all: "unset", cursor: "pointer" }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const id = item.links.replace("#", "");
+                    scrollToSection(id);
+                    toggleMenu();
+                  }}
                 >
                   {item.label}
                 </a>

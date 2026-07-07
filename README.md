@@ -2,7 +2,7 @@
 
 A modern, Apple-inspired personal portfolio website built with React 19, TypeScript, and Vite. Features fluid animations, glass morphism UI, an interactive 3D project gallery, and a fully responsive layout.
 
-**Live Site:** [sriramasivam.github.io/SriramPortfolio](https://sriramasivam.github.io/SriramPortfolio)
+**Live Site:** [argohaw.github.io/SriramPortfolio/](https://argohaw.github.io/SriramPortfolio/)
 
 ---
 

@@ -1,6 +1,8 @@
-# Sriramasivam Thirumalaivasan — Personal Portfolio
+# Sriramasivam Thirumalaivasan - Portfolio V2
 
-A modern, Apple-inspired personal portfolio website built with React 19, TypeScript, and Vite. Features fluid animations, glass morphism UI, an interactive 3D project gallery, and a fully responsive layout.
+A cinematic personal portfolio built with React, TypeScript, Vite, Three.js, and React Three Fiber.
+
+The site presents Sriramasivam's engineering experience through a persistent 3D "CyberCore" scene: a futuristic computational core inside a dark mechanical chamber. The core powers up on the home screen, stays active through the portfolio journey, coordinates with section transitions, and powers down on contact.
 
 **Live Site:** [argohaw.github.io/SriramPortfolio/](https://argohaw.github.io/SriramPortfolio/)
 
@@ -12,56 +14,80 @@ A modern, Apple-inspired personal portfolio website built with React 19, TypeScr
 |---|---|
 | Framework | React 19 + TypeScript |
 | Build Tool | Vite 7 |
-| 3D / WebGL | Three.js, React Three Fiber, OGL |
-| Animation | GSAP 3, Lenis |
+| 3D / WebGL | Three.js, React Three Fiber |
+| Animation / Scroll | GSAP, Lenis, custom scroll-state mapping |
 | Icons | React Icons |
-| Deployment | GitHub Actions → GitHub Pages |
+| Styling | CSS modules by feature, global design tokens |
+| Deployment | GitHub Pages via GitHub Actions |
+
+---
+
+## Current Experience
+
+- Persistent React Three Fiber canvas behind the full site
+- Futuristic CyberCore model with asymmetric rings, containment claws, mechanical vanes, processor details, and energy particles
+- Scroll-driven section states for core position, scale, rotation, explosion, portal alignment, wireframe mode, and power level
+- Computational chamber background with aperture machinery, vertical architecture, fog, foreground struts, and reflection glow
+- Home layout with content on the left, CyberCore centered, and a technical readout panel on the right
+- Experience section rotates the CyberCore upside down
+- Home power-up sequence with particles converging into the core
+- Contact power-down sequence with particles dispersing into space
+- Responsive layout for desktop, tablet, and mobile
+- Resume download menu with country-specific CV options
+
+---
+
+## Resume Downloads
+
+The Resume control opens a hover/focus menu:
+
+| Region | File |
+|---|---|
+| India - Fullstack | `src/assets/Sriram_Fullstack_Resume.pdf` |
+| India - Backend | `src/assets/Sriramasivam_Resume.pdf` |
+| Germany | `src/assets/CV_Sriramasivam_Thirumalaivasan.pdf` |
+| Netherlands | `src/assets/Sriramasivam_Thirumalaivasan_CV.pdf` |
+
+India opens a second-level submenu for Fullstack and Backend. Germany and Netherlands download directly.
 
 ---
 
 ## Project Structure
 
-```
+```text
 src/
-├── assets/                  # Static assets (images, resume PDF, logos)
-├── components/
-│   ├── css/                 # Component-scoped stylesheets
-│   │   ├── Homepage.css
-│   │   ├── Resume.css
-│   │   └── Services.css
-│   ├── reactbits/           # Third-party inspired interactive components
-│   │   ├── CardNav.tsx      # Animated hamburger navbar
-│   │   ├── CircularGallery.tsx  # WebGL-powered infinite carousel
-│   │   ├── LiquidEther.tsx  # Fluid background simulation
-│   │   └── ScrollStack.tsx  # Scroll-driven stacking cards
-│   ├── Homepage.tsx         # Hero section — two-pane layout with typewriter
-│   ├── Resume.tsx           # Tabbed resume — About, Experience, Education, Skills
-│   ├── WorkProjects.tsx     # Circular gallery of personal projects
-│   ├── Services.tsx         # Services/offerings section
-│   ├── Contact.tsx          # Contact form
-│   ├── Footer.tsx           # Fixed footer with social links
-│   ├── Navbar.tsx           # Top navigation bar
-│   └── SkillCard.tsx        # Flip card for individual skills
-├── App.tsx                  # Root component, scroll container, layout
-├── App.css                  # Global styles, scroll snap configuration
-├── main.tsx                 # React entry point
-└── vite-env.d.ts            # Asset type declarations
+|-- animation/
+|   `-- scrollConfig.ts          # Section ranges, camera states, CyberCore states
+|-- assets/                      # Images, logos, and resume/CV PDFs
+|-- components/
+|   |-- navigation/              # Navigation-related components, if split out later
+|   `-- sections/                # Section component workspace
+|-- data/
+|   |-- activities.ts
+|   |-- education.ts
+|   |-- experience.ts
+|   |-- projects.ts
+|   `-- skills.ts
+|-- hooks/
+|   `-- useScrollProgress.ts     # Scroll progress and active-section logic
+|-- styles/
+|   |-- global.css
+|   `-- tokens.css
+|-- three/
+|   |-- CameraRig.tsx
+|   |-- Chamber.tsx              # Futuristic computational chamber
+|   |-- Lighting.tsx
+|   |-- Scene.tsx                # Persistent R3F canvas
+|   `-- CyberCore/
+|       |-- CyberCore.tsx
+|       |-- EnergyCore.tsx       # Energy anomaly and particle power sequence
+|       |-- MiddleAssembly.tsx
+|       |-- OuterFrame.tsx
+|       `-- materials.ts
+|-- App.tsx                      # Root layout, sections, resume menu
+|-- App.css                      # Main layout and responsive styling
+`-- main.tsx                     # React entry point
 ```
-
----
-
-## Features
-
-- **Liquid background** — real-time fluid simulation reacting to mouse movement
-- **Glass morphism UI** — consistent frosted glass aesthetic across all sections
-- **Smooth scroll snapping** — page-by-page scroll with `scroll-snap-type: y proximity`
-- **Homepage hero** — two-pane layout with typewriter role switcher and personal photo
-- **Tabbed resume** — About Me, Work Experience (horizontal timeline), Education, Skills
-- **Circular project gallery** — WebGL infinite carousel with auto-scroll, pauses on hover
-- **Skill cards** — flip animation revealing skill name on hover
-- **Animated navbar** — GSAP-powered expanding card nav with smooth section scrolling
-- **Resume download** — "Let's Connect" button triggers PDF download via Vite asset import
-- **Fully responsive** — breakpoints at 1024px and 768px across all sections
 
 ---
 
@@ -72,11 +98,9 @@ src/
 - Node.js 18+
 - npm
 
-### Installation
+### Install
 
 ```bash
-git clone https://github.com/sriramasivam/SriramPortfolio.git
-cd SriramPortfolio
 npm install
 ```
 
@@ -86,7 +110,11 @@ npm install
 npm run dev
 ```
 
-Opens at `http://localhost:5173/SriramPortfolio/`
+Local URL:
+
+```text
+http://localhost:5173/SriramPortfolio/
+```
 
 ### Build
 
@@ -94,9 +122,9 @@ Opens at `http://localhost:5173/SriramPortfolio/`
 npm run build
 ```
 
-Output goes to `dist/`. The build runs TypeScript compilation followed by Vite bundling with manual chunk splitting for `react`, `three`, `gsap`, `lenis`, and `react-icons`.
+The build runs TypeScript compilation and then creates the production bundle in `dist/`.
 
-### Preview Production Build
+### Preview
 
 ```bash
 npm run preview
@@ -112,49 +140,53 @@ npm run lint
 
 ## Deployment
 
-The site is deployed automatically to GitHub Pages via GitHub Actions on every push to `main`.
+The Vite config uses:
 
-**Workflow:** `.github/workflows/main.yml`
-
-```
-push to main
-  → checkout
-  → setup Node 18
-  → npm ci
-  → npm run build
-  → deploy dist/ to gh-pages branch
+```ts
+base: '/SriramPortfolio/'
 ```
 
-The Vite config sets `base: '/SriramPortfolio/'` to match the GitHub Pages subdirectory URL.
+This matches the GitHub Pages subdirectory deployment.
+
+GitHub Actions workflow files live in:
+
+```text
+.github/workflows/
+```
 
 ---
 
-## Design System
+## Design Direction
+
+The current V2 direction is a dark, premium, computational engineering interface:
 
 | Token | Value |
 |---|---|
-| Primary accent | `#a78bfa` (purple) |
-| Secondary accent | `#06b6d4` (cyan) |
-| Glass background | `rgba(255, 255, 255, 0.1)` |
-| Glass blur | `backdrop-filter: blur(16px)` |
-| Glass border | `1px solid rgba(255, 255, 255, 0.15)` |
-| Glass shadow | `0 8px 32px rgba(0, 0, 0, 0.25)` |
-| Font | Inter (all weights), Pacifico (hello greeting) |
+| Black | `#050505` |
+| Ivory | `#F4F0E6` |
+| Gold | `#D6B25E` |
+| Nitro Purple | `#7C3CFF` |
+| Neon status accent | `#B6FF39` |
+
+The visual system avoids generic sci-fi decoration in favor of mechanical layering, restrained motion, dark chamber depth, and scroll-driven cinematic transitions.
 
 ---
 
 ## Sections
 
-| Section | Route Anchor | Description |
+| Section | Anchor | Purpose |
 |---|---|---|
-| Home | `#home` | Hero with photo, name, typewriter role |
-| Experience | `#experience` | Tabbed resume — About, Work, Education, Skills |
-| Projects | `#projects` | WebGL circular gallery of personal projects |
-| Services | `#services` | Scroll-stacked service offering cards |
-| Contact | `#contact` | Contact form |
+| Home | `#hero` | Intro, centered CyberCore, power-up sequence |
+| About | `#about` | Profile and engineering positioning |
+| Experience | `#experience` | Work history and timeline |
+| Skills | `#skills` | Exploded engineering stack |
+| Projects | `#projects` | Project showcase and controls |
+| Education | `#education` | Degree, coursework, academic details |
+| Research | `#activities` | Research and professional activities |
+| Contact | `#contact` | Contact form, social links, power-down sequence |
 
 ---
 
 ## License
 
-This project is personal and not licensed for reuse. All content, design, and project details belong to Sriramasivam Thirumalaivasan.
+This project is personal and not licensed for reuse. All content, design, project details, and resume assets belong to Sriramasivam Thirumalaivasan.

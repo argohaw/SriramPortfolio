@@ -118,7 +118,7 @@ function App() {
           <div className="hero-grid">
             <div className="copy-block hero-copy">
               <p className="eyebrow">HELLO / 001</p>
-              <h1>Sriramasivam Thirumalaivasan</h1>
+              <h1 className="hero-name"><span>Sriramasivam</span> <span>Thirumalaivasan</span></h1>
               <p className="role">Senior Software Engineer</p>
               <p className="lede">
                 I build high-throughput distributed systems and cloud-native applications across Java,

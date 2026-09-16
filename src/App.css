@@ -372,6 +372,9 @@ html, body {
 h1, h2, h3 { color: var(--c-ivory); line-height: 1.02; letter-spacing: 0; }
 
 h1 { font-size: var(--text-hero); max-width: 9ch; }
+.hero-name span {
+  white-space: nowrap;
+}
 h2 { font-size: var(--text-3xl); }
 h3 { font-size: clamp(1.2rem, 2vw, 1.7rem); margin: 0.25rem 0; }
 
@@ -585,9 +588,14 @@ ul { padding-left: 1.1rem; margin-top: 0.8rem; }
     background: linear-gradient(180deg, rgba(5,5,5,0.94), rgba(5,5,5,0.42));
   }
   h1 {
-    font-size: clamp(2.35rem, 13vw, 4.1rem);
-    max-width: 10ch;
-    overflow-wrap: anywhere;
+    font-size: clamp(2.15rem, 10.8vw, 3.35rem);
+    max-width: 100%;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+  .hero-name span {
+    display: block;
+    white-space: normal;
   }
   h2 {
     font-size: clamp(1.75rem, 9vw, 2.45rem);
@@ -622,14 +630,17 @@ ul { padding-left: 1.1rem; margin-top: 0.8rem; }
     max-width: 100%;
   }
   .timeline-card {
-    grid-template-columns: 44px 1fr;
+    grid-template-columns: 1fr;
     gap: 0.8rem;
     padding: 1rem;
   }
   .timeline-card .logo {
-    grid-column: 1 / -1;
     width: 52px;
     height: 52px;
+  }
+  .timeline-card > div:not(.timeline-index) {
+    min-width: 0;
+    width: 100%;
   }
   .skill-grid,
   .activity-grid {
@@ -685,6 +696,6 @@ ul { padding-left: 1.1rem; margin-top: 0.8rem; }
     grid-template-columns: 1fr;
   }
   h1 {
-    font-size: clamp(2.1rem, 12vw, 3.2rem);
+    font-size: clamp(2rem, 10.5vw, 3rem);
   }
 }

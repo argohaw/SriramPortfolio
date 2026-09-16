@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+﻿import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
@@ -10,9 +10,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom'],
-          three: ['three'],
-          gsap: ['gsap'],
-          lenis: ['lenis'],
+          three: ['three', '@react-three/fiber'],
           icons: ['react-icons']
         }
       }
@@ -20,3 +18,4 @@ export default defineConfig({
     chunkSizeWarningLimit: 1000
   }
 })
+

@@ -1,0 +1,107 @@
+@import './tokens.css';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  background: var(--c-black);
+  color: var(--c-ivory);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+#root {
+  height: 100%;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--c-gold-dim); border-radius: 2px; }
+
+/* Focus */
+:focus-visible {
+  outline: 1px solid var(--c-gold);
+  outline-offset: 3px;
+}
+
+/* Technical label utility */
+.label {
+  font-size: var(--text-label);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--c-gold);
+}
+
+/* Section heading utility */
+.section-heading {
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--c-ivory);
+}
+
+/* Card surface utility */
+.card-surface {
+  background: var(--surface-card);
+  border: var(--surface-border);
+  box-shadow: var(--surface-shadow);
+  border-radius: 16px;
+}
+
+/* Button base */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 8px;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color var(--ease-fast), transform var(--ease-fast), box-shadow var(--ease-fast);
+  text-decoration: none;
+  font-family: var(--font-sans);
+}
+
+.btn-primary {
+  background: var(--c-purple);
+  color: var(--c-ivory);
+  border: 1px solid var(--c-purple);
+}
+
+.btn-primary:hover {
+  background: var(--c-purple-bright);
+  border-color: var(--c-purple-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--c-purple-glow);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--c-ivory);
+  border: 1px solid var(--c-border);
+}
+
+.btn-outline:hover {
+  border-color: var(--c-gold);
+  color: var(--c-gold);
+  transform: translateY(-2px);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

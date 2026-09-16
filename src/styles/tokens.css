@@ -1,0 +1,67 @@
+:root {
+  /* Colours */
+  --c-black: #050505;
+  --c-surface: #0b0b0d;
+  --c-surface-elevated: #111114;
+  --c-surface-card: #16161a;
+
+  --c-ivory: #f4f0e6;
+  --c-ivory-muted: rgba(244, 240, 230, 0.62);
+  --c-ivory-dim: rgba(244, 240, 230, 0.35);
+
+  --c-gold: #d6b25e;
+  --c-gold-muted: rgba(214, 178, 94, 0.35);
+  --c-gold-dim: rgba(214, 178, 94, 0.16);
+
+  --c-purple: #7c3cff;
+  --c-purple-bright: #9b6cff;
+  --c-purple-dim: rgba(124, 60, 255, 0.18);
+  --c-purple-glow: rgba(124, 60, 255, 0.35);
+
+  --c-neon: #b6ff39;
+  --c-neon-dim: rgba(182, 255, 57, 0.15);
+
+  --c-border: rgba(244, 240, 230, 0.08);
+  --c-border-gold: rgba(214, 178, 94, 0.18);
+  --c-border-purple: rgba(124, 60, 255, 0.3);
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  --text-label: 0.7rem;
+  --text-sm: 0.85rem;
+  --text-base: 1rem;
+  --text-lg: 1.15rem;
+  --text-xl: 1.4rem;
+  --text-2xl: 2rem;
+  --text-3xl: clamp(2rem, 4vw, 3.5rem);
+  --text-hero: clamp(2.8rem, 7vw, 7rem);
+
+  --tracking-wide: 0.12em;
+  --tracking-wider: 0.18em;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 7rem;
+
+  /* Z-index layers */
+  --z-canvas: 0;
+  --z-overlay: 10;
+  --z-content: 20;
+  --z-nav: 80;
+  --z-modal: 100;
+
+  /* Surfaces */
+  --surface-card: linear-gradient(135deg, rgba(255,255,255,0.045), rgba(255,255,255,0.012));
+  --surface-border: 1px solid var(--c-border-gold);
+  --surface-shadow: 0 20px 70px rgba(0,0,0,0.5);
+
+  /* Transitions */
+  --ease-fast: 0.2s ease;
+  --ease-normal: 0.4s ease;
+  --ease-slow: 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}

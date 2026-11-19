@@ -95,7 +95,7 @@ src/
 
 ### Prerequisites
 
-- Node.js 18+
+- Node.js 22+
 - npm
 
 ### Install
@@ -122,7 +122,7 @@ http://localhost:5173/SriramPortfolio/
 npm run build
 ```
 
-The build runs TypeScript compilation and then creates the production bundle in `dist/`.
+The build creates the production bundle in `dist/`.
 
 ### Preview
 

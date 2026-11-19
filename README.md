@@ -1,192 +1,129 @@
-# Sriramasivam Thirumalaivasan - Portfolio V2
+# Sriramasivam Thirumalaivasan — Portfolio
 
-A cinematic personal portfolio built with React, TypeScript, Vite, Three.js, and React Three Fiber.
+A responsive personal portfolio built with React and Vite. Its cyberpunk-inspired interface presents a booting handheld device on the home screen, animated city scenes, and a shared circuit-board transition into and out of the contact screen.
 
-The site presents Sriramasivam's engineering experience through a persistent 3D "CyberCore" scene: a futuristic computational core inside a dark mechanical chamber. The core powers up on the home screen, stays active through the portfolio journey, coordinates with section transitions, and powers down on contact.
+**Live site:** [argohaw.github.io/SriramPortfolio](https://argohaw.github.io/SriramPortfolio/)
 
-**Live Site:** [argohaw.github.io/SriramPortfolio/](https://argohaw.github.io/SriramPortfolio/)
+## Features
 
----
+- Responsive layout with a desktop navigation bar and mobile menu
+- Animated device boot sequence, typewriter role text, and scroll-driven device transitions
+- About, experience, skills, projects, education, achievements, and contact sections
+- Experience details in accessible modal dialogs and horizontally animated project cards
+- Resume downloads for India, Germany, the Netherlands, and the UK
+- Contact form powered by EmailJS when configured
+- Reduced-motion support and keyboard-accessible navigation and controls
 
-## Tech Stack
+## Tech stack
 
-| Category | Technology |
+| Area | Technology |
 |---|---|
-| Framework | React 19 + TypeScript |
-| Build Tool | Vite 7 |
-| 3D / WebGL | Three.js, React Three Fiber |
-| Animation / Scroll | GSAP, Lenis, custom scroll-state mapping |
+| UI | React 19, JavaScript (ES modules) |
+| Build | Vite 8 |
+| Styling | Tailwind CSS 4, custom CSS |
+| Animation | Framer Motion |
 | Icons | React Icons |
-| Styling | CSS modules by feature, global design tokens |
-| Deployment | GitHub Pages via GitHub Actions |
+| Contact form | EmailJS |
+| Hosting | GitHub Pages |
 
----
+## Getting started
 
-## Current Experience
+### Requirements
 
-- Persistent React Three Fiber canvas behind the full site
-- Futuristic CyberCore model with asymmetric rings, containment claws, mechanical vanes, processor details, and energy particles
-- Scroll-driven section states for core position, scale, rotation, explosion, portal alignment, wireframe mode, and power level
-- Computational chamber background with aperture machinery, vertical architecture, fog, foreground struts, and reflection glow
-- Home layout with content on the left, CyberCore centered, and a technical readout panel on the right
-- Experience section rotates the CyberCore upside down
-- Home power-up sequence with particles converging into the core
-- Contact power-down sequence with particles dispersing into space
-- Responsive layout for desktop, tablet, and mobile
-- Resume download menu with country-specific CV options
-
----
-
-## Resume Downloads
-
-The Resume control opens a hover/focus menu:
-
-| Region | File |
-|---|---|
-| India - Fullstack | `src/assets/Sriram_Fullstack_Resume.pdf` |
-| India - Backend | `src/assets/Sriramasivam_Resume.pdf` |
-| Germany | `src/assets/CV_Sriramasivam_Thirumalaivasan.pdf` |
-| Netherlands | `src/assets/Sriramasivam_Thirumalaivasan_CV.pdf` |
-
-India opens a second-level submenu for Fullstack and Backend. Germany and Netherlands download directly.
-
----
-
-## Project Structure
-
-```text
-src/
-|-- animation/
-|   `-- scrollConfig.ts          # Section ranges, camera states, CyberCore states
-|-- assets/                      # Images, logos, and resume/CV PDFs
-|-- components/
-|   |-- navigation/              # Navigation-related components, if split out later
-|   `-- sections/                # Section component workspace
-|-- data/
-|   |-- activities.ts
-|   |-- education.ts
-|   |-- experience.ts
-|   |-- projects.ts
-|   `-- skills.ts
-|-- hooks/
-|   `-- useScrollProgress.ts     # Scroll progress and active-section logic
-|-- styles/
-|   |-- global.css
-|   `-- tokens.css
-|-- three/
-|   |-- CameraRig.tsx
-|   |-- Chamber.tsx              # Futuristic computational chamber
-|   |-- Lighting.tsx
-|   |-- Scene.tsx                # Persistent R3F canvas
-|   `-- CyberCore/
-|       |-- CyberCore.tsx
-|       |-- EnergyCore.tsx       # Energy anomaly and particle power sequence
-|       |-- MiddleAssembly.tsx
-|       |-- OuterFrame.tsx
-|       `-- materials.ts
-|-- App.tsx                      # Root layout, sections, resume menu
-|-- App.css                      # Main layout and responsive styling
-`-- main.tsx                     # React entry point
-```
-
----
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js 22+
+- Node.js 22.13 or newer (the GitHub Actions workflows use Node 22)
 - npm
 
-### Install
+### Install dependencies
 
 ```bash
-npm install
+npm ci
 ```
 
-### Development
+### Start the development server
 
 ```bash
 npm run dev
 ```
 
-Local URL:
+With the configured GitHub Pages base path, open [http://localhost:5173/SriramPortfolio/](http://localhost:5173/SriramPortfolio/).
 
-```text
-http://localhost:5173/SriramPortfolio/
-```
-
-### Build
+### Build and preview
 
 ```bash
 npm run build
-```
-
-The build creates the production bundle in `dist/`.
-
-### Preview
-
-```bash
 npm run preview
 ```
 
-### Lint
+The production bundle is written to `dist/`.
 
-```bash
-npm run lint
+## Contact form configuration
+
+The contact form requires an EmailJS service, template, and public key. Copy `.env.example` to `.env` and set:
+
+```dotenv
+VITE_EMAILJS_SERVICE_ID=your_service_id
+VITE_EMAILJS_TEMPLATE_ID=your_template_id
+VITE_EMAILJS_PUBLIC_KEY=your_public_key
 ```
 
----
+Restart the development server after changing environment variables. Without these values, the form displays a notice to contact Sriram directly instead of attempting to send.
+
+## Resume files
+
+Resume PDFs are stored in `public/resumes/` and their paths and download names are configured in `src/data/resumes.js`.
+
+| Region | File |
+|---|---|
+| India — Full-stack | `Sriramasivam_FS_Resume.pdf` |
+| India — Backend | `Sriramasivam_B_Resume.pdf` |
+| Germany | `CV_Sriramasivam_Thirumalaivasan.pdf` |
+| Netherlands | `Sriramasivam_Thirumalaivasan_CV.pdf` |
+| UK | `Sriramasivam CV.pdf` |
+
+Public assets referenced from JavaScript should use `asset()` from `src/lib/asset.js`. It prefixes asset URLs with Vite's configured base path so they work on GitHub Pages.
+
+## Project structure
+
+```text
+.
+├── .github/workflows/       # GitHub Pages deployment and release workflows
+├── public/
+│   ├── resumes/             # Downloadable CVs
+│   └── ...                  # Profile, company logos, and favicon
+├── src/
+│   ├── components/
+│   │   ├── home/            # Device, city, circuit board, boot screen, and logo
+│   │   ├── layout/          # Header, footer, and section layout
+│   │   ├── sections/        # Portfolio content sections
+│   │   └── ui/              # Shared buttons, cards, menus, and dialogs
+│   ├── data/                # Profile, navigation, and section content
+│   ├── hooks/               # Navigation, device transitions, and animation hooks
+│   ├── lib/                 # Public asset URLs and shared device-stage state
+│   ├── App.jsx              # Site composition
+│   ├── index.css            # Tailwind theme, utilities, and global styles
+│   └── main.jsx             # React entry point
+├── index.html
+├── package.json
+└── vite.config.js
+```
+
+## Page sections
+
+| Section | Anchor |
+|---|---|
+| Home | `#home` |
+| About | `#about` |
+| Experience | `#experience` |
+| Skills | `#skills` |
+| Projects | `#projects` |
+| Education | `#education` |
+| Achievements | `#achievements` |
+| Contact | `#contact` |
 
 ## Deployment
 
-The Vite config uses:
-
-```ts
-base: '/SriramPortfolio/'
-```
-
-This matches the GitHub Pages subdirectory deployment.
-
-GitHub Actions workflow files live in:
-
-```text
-.github/workflows/
-```
-
----
-
-## Design Direction
-
-The current V2 direction is a dark, premium, computational engineering interface:
-
-| Token | Value |
-|---|---|
-| Black | `#050505` |
-| Ivory | `#F4F0E6` |
-| Gold | `#D6B25E` |
-| Nitro Purple | `#7C3CFF` |
-| Neon status accent | `#B6FF39` |
-
-The visual system avoids generic sci-fi decoration in favor of mechanical layering, restrained motion, dark chamber depth, and scroll-driven cinematic transitions.
-
----
-
-## Sections
-
-| Section | Anchor | Purpose |
-|---|---|---|
-| Home | `#hero` | Intro, centered CyberCore, power-up sequence |
-| About | `#about` | Profile and engineering positioning |
-| Experience | `#experience` | Work history and timeline |
-| Skills | `#skills` | Exploded engineering stack |
-| Projects | `#projects` | Project showcase and controls |
-| Education | `#education` | Degree, coursework, academic details |
-| Research | `#activities` | Research and professional activities |
-| Contact | `#contact` | Contact form, social links, power-down sequence |
-
----
+Vite's `base` is set to `/SriramPortfolio/` in `vite.config.js` for the GitHub Pages project site. The workflow in `.github/workflows/main.yml` installs dependencies and builds on pushes and pull requests to `main`; pushes to `main` also publish `dist/` to the `gh-pages` branch. `.github/workflows/release.yml` builds and attaches `dist.zip` to releases created from `v*` tags.
 
 ## License
 
-This project is personal and not licensed for reuse. All content, design, project details, and resume assets belong to Sriramasivam Thirumalaivasan.
+This is a personal portfolio and is not licensed for reuse. The content, design, project details, and resume assets belong to Sriramasivam Thirumalaivasan.
